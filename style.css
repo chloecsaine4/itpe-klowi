@@ -1,0 +1,331 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.H {
+    background: linear-gradient(135deg, #000000, #1f1f1f, #2ecc71);
+    color: #2ecc71;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.H h1 {
+    font-size: 40px;
+    margin: 0;
+    text-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71;
+}
+
+.H p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ccc;
+    letter-spacing: 1px;
+}
+
+.H::before {
+    content: "💨";
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(46, 204, 113, 0.2), transparent 70%);
+    top: -50%;
+    left: -50%;
+    animation: glowMove 6s linear infinite;
+    z-index: 0;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes glowMove {
+    0% {
+        transform: translate(0,0);
+    }
+    50% {
+        transform: translate(50px,50px);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.card:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.9);
+}
+.card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 15px;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+    border: 1px solid transparent;
+    background: linear-gradient(#1e1e1e, #1e1e1e) padding-box,
+              linear-gradient(45deg, #2ecc71, #00c3ff) border-box;
+
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.card h3 {
+    color: #2ecc71;
+    margin: 10px 0;
+    background: linear-gradient(90deg, #2ecc71, #00c3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.stars {
+    color: gold;
+    margin: 5px 0;
+}
+
+.review {
+    font-size: 13px;
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.product-actions {
+    margin-top: 10px;
+}
+
+.product-actions button,
+.fav-label {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px 0;
+    display: block;
+    width: 100%;
+}
+
+.product-actions button {
+    background-color: #2ecc71;
+    color: black;
+    transition: background 0.3s;
+}
+
+.product-actions button:hover {
+    background-color: #27ae60;
+}
+
+.fav-checkbox {
+    display: none;
+}
+
+.fav-label {
+    background-color: #ff5c5c;
+    color: white;
+    transition: background 0.3s;
+}
+
+.fav-label:hover {
+    background-color: #ff1c1c;
+}
+
+@media (max-width: 800px) {
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.checkout-card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin: 40px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.checkout-card input {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #2a2a2a;
+    color: white;
+    font-size: 16px;
+}
+
+.checkout-label {
+    display: block;
+    text-align: center;
+    background-color: #ff5c5c;
+    color: white;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-label:hover {
+    background-color: #ff1c1c;
+}
+
+.success-message {
+    display: none;
+    opacity: 0;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff5c5c;
+    font-weight: bold;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#checkout-toggle:checked ~ .success-message {
+    display: block;
+    opacity: 1;
+}
+
+.success-message a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin-top: 15px;
+    background-color: #ff5c5c;
+    color: white;
+    border-radius: 5px;
+    opacity: 1;
+}
+
+.success-message a:hover {
+    background-color: #ff1c1c;
+}
+:root {
+    --bg-color: #121212;
+    --text-color: #fff;
+    --card-bg: #1e1e1e;
+    --accent: #2ecc71;
+}
+
+#theme-toggle:checked ~ * {
+    --bg-color: #ffffff;
+    --text-color: #121212;
+    --card-bg: #f5f5f5;
+    --accent: #27ae60;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.theme-label {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index:9999;
+}
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+    margin: 15px;
+    width: 250px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff5c5c;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover .badge {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px #2ecc71;
+}
+
+.about {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #ccc;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
